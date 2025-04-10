@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TVMaze API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>TVMaze</h1>
+    <main id="app">
+        <!--CONTENIDO DINAMICO-->
+    </main>
+
+<aside class="c-menu"><!--Dentro del aside van los botones-->
+
+<button class="c-nav-item"
+onclick="general()">Menu</button>
+<button class="c-nav-item"
+onclick="mostrarAleatorios()">Aleatorios</button>
+<button class="c-nav-item"
+onclick="mostrarUsuarios()">Usuarios</button>
+<button class="c-nav-item"
+onclick="mostrarFavoritos()">Favoritos</button>
+<button class="c-nav-item"
+onclick="mostrarCapturados()">Capturados</button>
+<button class="c-nav-item"
+onclick="mostrarDetalles()">Detalles</button>
+<button class="c-nav-item"
+onclick="mostrarLista()">Lista</button>
+
+</aside>
+
+    <script src="js/api.js"></script> <!--SIEMPRE SE LLAMA DE PRIMERAS EL API.JS-->
+    <script src="js/aleatorio.js"></script>
+    <script src="js/capturados.js"></script>
+    <script src="js/detalle.js"></script>
+    <script src="js/favoritos.js"></script>
+    <script src="js/lista.js"></script>
+    <script src="js/usuario.js"></script>
+
+    <script>
+        document.addEventListner("DOMContentLoaded",general);
+    </script>
+</body>
+</html>
