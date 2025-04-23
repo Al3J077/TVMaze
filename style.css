@@ -1,5 +1,4 @@
-
-/* Variables de color */
+/*==================== VARIABLES ====================*/
 :root {
   --fondo: #111;
   --texto: #eee;
@@ -8,14 +7,14 @@
   --borde: #2c2c2c;
 }
 
-/* Reset básico */
+/*==================== RESET ====================*/
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Estilos globales */
+/*==================== LAYOUT GENERAL ====================*/
 body {
   background-color: var(--fondo);
   color: var(--texto);
@@ -23,6 +22,21 @@ body {
   line-height: 1.5;
 }
 
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+main.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*==================== HEADER & FOOTER ====================*/
 header, footer {
   background-color: #000;
   padding: 1rem;
@@ -36,7 +50,19 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Navegación */
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/*==================== NAVEGACIÓN ====================*/
 nav {
   margin-top: 1rem;
   display: flex;
@@ -59,16 +85,28 @@ nav button:hover {
   color: #fff;
 }
 
-/* Contenido principal */
-main {
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
+/*==================== BOTONES ====================*/
+button {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-/* Tarjetas */
+button:hover {
+  transform: scale(1.05);
+  background-color: #3b82f6;
+}
+
+/*==================== TARJETAS ====================*/
 .card, .serie {
   background-color: #111827;
+  border: 1px solid #444;
   border-radius: 12px;
   overflow: hidden;
   padding: 1rem;
@@ -90,40 +128,6 @@ main {
   margin-top: 0.5rem;
 }
 
-/* Botones */
-button {
-  background-color: #1e3a8a;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-button:hover {
-  transform: scale(1.05);
-  background-color: #3b82f6;
-}
-
-
-/* Transición suave entre vistas */
-main {
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-main.mostrar {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .grid-destacadas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -131,20 +135,7 @@ main.mostrar {
   margin-top: 1rem;
 }
 
-.card {
-  background: #111;
-  border: 1px solid #444;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
-
-.card img {
-  max-width: 100%;
-  border-radius: 8px;
-}
-
+/*==================== TOAST ====================*/
 .toast {
   position: fixed;
   bottom: 30px;
@@ -165,17 +156,7 @@ main.mostrar {
   transform: translateX(-50%) translateY(-10px);
 }
 
-.logo {
-  height: 50px;
-  margin-right: 10px;
-  vertical-align: middle;
-}
-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
+/*==================== SPLASH SCREEN ====================*/
 #splash-screen {
   position: fixed;
   top: 0; left: 0;
@@ -195,5 +176,45 @@ header {
   to {
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+/*==================== RESPONSIVE ====================*/
+@media (max-width: 768px) {
+  header, footer {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav button {
+    width: 100%;
+    padding: 0.7rem;
+  }
+
+  .card, .serie {
+    margin: 1rem 0;
+    padding: 0.8rem;
+  }
+
+  .card img, .serie img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .grid-destacadas {
+    grid-template-columns: 1fr;
+  }
+
+  #splash-screen {
+    font-size: 1.5em;
   }
 }
