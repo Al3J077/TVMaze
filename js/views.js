@@ -5,9 +5,12 @@ function renderHome() {
     <section class="home">
       <h2>Bienvenido a TV Maze</h2>
       <p>Explora tus series favoritas desde TVMaze.</p>
+      <div id="destacadas" class="grid"></div>
     </section>
   `;
+  cargarSeriesDestacadas(); // Llama la función para traer contenido
 }
+
 
 function renderBuscar() {
   document.getElementById("app").innerHTML = `
