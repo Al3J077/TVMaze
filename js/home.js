@@ -14,7 +14,7 @@ function renderHome() {
             <div class="card">
               <img src="${serie.image?.medium || ''}" alt="${serie.name}">
               <h3>${serie.name}</h3>
-              <button onclick='guardarFavorito(${JSON.stringify(serie)})'>Agregar a favoritos</button>
+              <button onclick='guardarFavoritoPorId(${serie.id})'>Agregar a favoritos</button>
             </div>
           `;
           seriesContainer.appendChild(card);
