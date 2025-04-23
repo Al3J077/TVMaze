@@ -5,11 +5,15 @@ function renderHome() {
     <section class="home">
       <h2>Bienvenido a TV Maze</h2>
       <p>Explora tus series favoritas desde TVMaze.</p>
-      <div id="destacadas" class="grid"></div>
+      <h3>Series recomendadas</h3>
+      <div id="destacadas" class="grid-destacadas"></div>
     </section>
   `;
-  cargarSeriesDestacadas(); // Llama la función para traer contenido
+
+  // Llama a la función que carga series destacadas desde la API
+  cargarSeriesDestacadas();
 }
+
 
 
 function renderBuscar() {

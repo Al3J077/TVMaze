@@ -123,3 +123,10 @@ main.mostrar {
   opacity: 1;
   transform: translateY(0);
 }
+
+.grid-destacadas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
+}
