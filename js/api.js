@@ -32,4 +32,15 @@ async function cargarSeriesDestacadas() {
   }
 }
 
+function verDetallesSerie(id) {
+  fetch(`https://api.tvmaze.com/shows/${id}`)
+    .then(res => res.json())
+    .then(data => renderDetalles(data))
+    .catch(err => {
+      console.error("Error al cargar detalles:", err);
+      alert("No se pudieron cargar los detalles.");
+    });
+}
+
+
 
