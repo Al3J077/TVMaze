@@ -10,17 +10,26 @@ async function guardarFavoritoPorId(id) {
 }
 
 async function cargarSeriesDestacadas() {
-  const response = await fetch("https://api.tvmaze.com/shows?page=1");
-  const series = await response.json();
+  try {
+    const response = await fetch("https://api.tvmaze.com/shows?page=1"); // Página con muchas series
+    const data = await response.json();
 
-  const destacadasHTML = series.slice(0, 10).map(serie => `
-    <div class="card">
-      <h3>${serie.name}</h3>
-      <img src="${serie.image?.medium || 'https://via.placeholder.com/210x295?text=No+Image'}" alt="${serie.name}" />
-      <button onclick='guardarFavoritoPorId(${serie.id})'>Agregar a favoritos</button>
-    </div>
-  `).join("");
+    // Tomamos las primeras 10 series para mostrar
+    const destacadas = data.slice(0, 10);
 
-  document.getElementById("destacadas").innerHTML = destacadasHTML;
+    const html = destacadas.map(serie => `
+      <div class="card">
+        <h4>${serie.name}</h4>
+        <img src="${serie.image?.medium || 'https://via.placeholder.com/210x295?text=No+Image'}" alt="${serie.name}" />
+        <button onclick="guardarFavoritoPorId(${serie.id})">Agregar a favoritos</button>
+      </div>
+    `).join("");
+
+    document.getElementById("destacadas").innerHTML = html;
+  } catch (error) {
+    console.error("Error al cargar series destacadas:", error);
+    document.getElementById("destacadas").innerHTML = "<p>No se pudieron cargar las series destacadas.</p>";
+  }
 }
+
 
