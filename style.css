@@ -1,0 +1,46 @@
+/* ... lo anterior ... */
+
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #222;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.6rem 0;
+    z-index: 1000;
+  }
+  
+  nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    flex: 1;
+  }
+  
+  nav button:hover {
+    background-color: #444;
+    border-radius: 0.5rem;
+  }
+  
+  footer {
+    display: none; /* Ya no lo necesitamos si usamos el nav como footer */
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 0.5rem;
+  }
+  
