@@ -1,5 +1,8 @@
 // js/api.js
 
+async function buscarSeries() {
+    const query = document.getElementById("inputBusqueda").value.trim();
+    if (!query) return;
   
     const response = await fetch(`https://api.tvmaze.com/search/shows?q=${encodeURIComponent(query)}`);
     const data = await response.json();
@@ -18,6 +21,8 @@
     document.getElementById("resultadosBusqueda").innerHTML = html;
   }
   
+  const buscarSerie = async () => {
+    const query = document.getElementById("busqueda").value.trim();
   
     if (!query) {
       alert("Por favor escribe el nombre de una serie.");
