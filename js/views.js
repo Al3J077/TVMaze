@@ -146,12 +146,12 @@ function renderDetalles(serie) {
 
 
 function renderAlAzar() {
+  console.log("¡Entró a renderAlAzar!"); // prueba de consola
   fetch("https://api.tvmaze.com/shows")
     .then(res => res.json())
     .then(shows => {
       const random = Math.floor(Math.random() * shows.length);
       const serie = shows[random];
-
       renderDetalles(serie);
     })
     .catch(error => {
