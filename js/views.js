@@ -35,7 +35,7 @@ function renderBuscar() {
             <div class="card">
               <h3>${serie.name}</h3>
               <img src="${serie.image?.medium || 'https://via.placeholder.com/210x295?text=No+Image'}" alt="${serie.name}" />
-              <button onclick="guardarFavoritoPorId(${serie.id})">Agregar a favoritos</button>s
+              <button onclick="guardarFavoritoPorId(${serie.id})">Agregar a favoritos</button>
             </div>
           `;
         }).join("");
