@@ -7,6 +7,6 @@ const routes = {
   buscar: renderBuscar,
   info: renderInfo,
   favoritos: renderFavoritos,
-  azar: renderAlAzar, // NUEVA FUNCIÓN
+  azar: renderAlAzar,
 };
 

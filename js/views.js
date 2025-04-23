@@ -146,33 +146,19 @@ function renderDetalles(serie) {
 
 
 function renderAlAzar() {
-  document.getElementById("app").innerHTML = `
-    <section class="azar">
-      <h2>Serie al Azar 🎲</h2>
-      <div id="serie-azar" class="card">Cargando serie...</div>
-    </section>
-  `;
+  fetch("https://api.tvmaze.com/shows")
+    .then(res => res.json())
+    .then(shows => {
+      const random = Math.floor(Math.random() * shows.length);
+      const serie = shows[random];
 
-  const idAleatorio = Math.floor(Math.random() * 30000); // Ajusta el rango según el total de IDs disponibles
-
-  fetch(`https://api.tvmaze.com/shows/${idAleatorio}`)
-    .then(res => {
-      if (!res.ok) throw new Error("No se encontró la serie");
-      return res.json();
+      renderDetalles(serie);
     })
-    .then(serie => {
-      document.getElementById("serie-azar").innerHTML = `
-        <h3>${serie.name}</h3>
-        <img src="${serie.image?.medium || 'https://via.placeholder.com/210x295?text=No+Image'}" alt="${serie.name}" />
-        <p>${serie.genres.join(", ")}</p>
-        <button onclick="verDetallesSerie(${serie.id})">Ver más</button>
-        <button onclick="guardarFavoritoPorId(${serie.id})">Agregar a favoritos</button>
-      `;
-    })
-    .catch(err => {
-      document.getElementById("serie-azar").innerHTML = `
-        <p>No se pudo obtener una serie al azar. Intenta nuevamente.</p>
-        <button onclick="renderAlAzar()">Intentar otra vez</button>
+    .catch(error => {
+      console.error("Error al cargar serie aleatoria:", error);
+      document.getElementById("app").innerHTML = `
+        <p>No se pudo cargar una serie aleatoria. Intenta de nuevo.</p>
       `;
     });
 }
+
