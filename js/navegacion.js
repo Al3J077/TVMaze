@@ -1,15 +1,29 @@
+// js/navegacion.js
 function navigate(view) {
   const main = document.getElementById("app");
-  main.classList.remove("mostrar"); // Oculta antes de cambiar
+
+  main.classList.remove("mostrar");
 
   setTimeout(() => {
-    if (view === "home") renderHome();
-    else if (view === "buscar") renderBuscar();
-    else if (view === "favoritos") renderFavoritos();
-    else if (view === "info") renderInfo();
+    switch (view) {
+      case "home":
+        renderHome();
+        break;
+      case "buscar":
+        renderBuscar();
+        break;
+      case "favoritos":
+        renderFavoritos();
+        break;
+      case "info":
+        renderInfo();
+        break;
+      default:
+        renderHome();
+    }
 
     setTimeout(() => {
-      main.classList.add("mostrar"); // Muestra con animación
+      main.classList.add("mostrar");
     }, 10);
   }, 200);
 }

@@ -19,33 +19,37 @@ function renderBuscar() {
     </section>
   `;
 
-  document.getElementById("btn-buscar-api").addEventListener("click", async () => {
-    const query = document.getElementById("input-busqueda").value.trim();
-    if (!query) return alert("Escribe algo para buscar");
+  // Espera un momento para asegurar que el botón esté en el DOM
+  setTimeout(() => {
+    document.getElementById("btn-buscar-api").addEventListener("click", async () => {
+      const query = document.getElementById("input-busqueda").value.trim();
+      if (!query) return alert("Escribe algo para buscar");
 
-    try {
-      const response = await fetch(`https://api.tvmaze.com/search/shows?q=${query}`);
-      const data = await response.json();
+      try {
+        const response = await fetch(`https://api.tvmaze.com/search/shows?q=${query}`);
+        const data = await response.json();
 
-      const resultadosHTML = data.map(item => {
-        const serie = item.show;
-        return `
-          <div class="card">
-            <h3>${serie.name}</h3>
-            <img src="${serie.image?.medium || 'https://via.placeholder.com/210x295?text=No+Image'}" alt="${serie.name}" />
-            <button onclick='guardarFavorito(${JSON.stringify(serie).replace(/'/g, "\\'")})'>Agregar a favoritos</button>
-          </div>
-        `;
-      }).join("");
+        const resultadosHTML = data.map(item => {
+          const serie = item.show;
+          return `
+            <div class="card">
+              <h3>${serie.name}</h3>
+              <img src="${serie.image?.medium || 'https://via.placeholder.com/210x295?text=No+Image'}" alt="${serie.name}" />
+              <button onclick='guardarFavorito(${JSON.stringify(serie).replace(/'/g, "\\'")})'>Agregar a favoritos</button>
+            </div>
+          `;
+        }).join("");
 
-      document.getElementById("resultados-busqueda").innerHTML = resultadosHTML;
+        document.getElementById("resultados-busqueda").innerHTML = resultadosHTML;
 
-    } catch (error) {
-      console.error("Error al buscar:", error);
-      alert("Ocurrió un error al buscar. Intenta de nuevo.");
-    }
-  });
+      } catch (error) {
+        console.error("Error al buscar:", error);
+        alert("Ocurrió un error al buscar. Intenta de nuevo.");
+      }
+    });
+  }, 0);
 }
+
 
 function renderInfo() {
   document.getElementById("app").innerHTML = `
