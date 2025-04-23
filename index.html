@@ -5,17 +5,23 @@ luv<!DOCTYPE html>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <div id="splash-screen">
+    <h1>Bienvenido a TV Maze</h1>
+  </div>  
+
   <header>
+    <img src="img/TvMaze.png" alt="TV Maze Logo" class="logo" />
     <h1>TV Maze</h1>
-    <!-- Menú de navegación -->
     <nav>
-<button onclick="navigate('home')">Inicio</button>
-<button onclick="navigate('buscar')">Buscar</button>
-<button onclick="navigate('favoritos')">Favoritos</button>
-<button onclick="navigate('info')">Info</button>
-<button onclick="navigate('azar')">Al azar 🎲</button>
+      <button onclick="navigate('home')">Inicio</button>
+      <button onclick="navigate('buscar')">Buscar</button>
+      <button onclick="navigate('favoritos')">Favoritos</button>
+      <button onclick="navigate('info')">Info</button>
+      <button onclick="navigate('azar')">Al Azar</button>
     </nav>
   </header>
+  
 
   <main id="app">
     <!-- Aquí se renderizan todas las vistas dinámicamente -->
