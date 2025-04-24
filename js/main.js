@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   navigate("home");
 });
 
+setTimeout(() => {
+  const splash = document.getElementById('splash-screen');
+  if (splash) splash.style.display = 'none';
+}, 2500);
+
+
 const routes = {
   home: renderHome,
   buscar: renderBuscar,
