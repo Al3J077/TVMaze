@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
   <title>TVMaze</title>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2980b9">
   <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
 
@@ -39,7 +42,16 @@
 <script src="js/navegacion.js"></script>
 <script src="js/main.js"></script>
 
+
 <div id="toast" class="toast">Mensaje</div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log('✅ Service Worker registrado:', reg.scope))
+      .catch(err => console.error('❌ Error al registrar el Service Worker:', err));
+  }
+</script>
 
 </body>
 </html>
