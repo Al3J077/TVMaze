@@ -1,0 +1,21 @@
+{
+  "name": "TVMaze",
+  "short_name": "TVMaze",
+  "description": "Mira todos los detalles acerca de tus programas de TV favoritos",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#111",
+  "theme_color": "#2980b9",
+ "icons": [
+  {
+    "src": "img/tvmaze192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "img/tvmaze512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+ ]
+}
