@@ -1,11 +1,18 @@
-const CACHE_NAME = 'mi-app-cache-v1';
+const CACHE_NAME = 'tvmaze-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.css',
-  '/main.js',
-  '/icon-192.png',
-  '/icon-512.png'
+  '/style.css',
+  '/manifest.json',
+  '/img/tvmaze192.png',
+  '/img/tvmaze512.png',
+  '/img/TvMaze.png',
+  '/img/TvMazeSplash.png',
+  '/js/api.js',
+  '/js/favoritos.js',
+  '/js/views.js',
+  '/js/navegacion.js',
+  '/js/main.js'
 ];
 
 self.addEventListener('install', event => {
