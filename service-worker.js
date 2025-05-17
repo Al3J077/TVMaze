@@ -8,11 +8,13 @@ const urlsToCache = [
   '/img/tvmaze512.png',
   '/img/TvMaze.png',
   '/img/TvMazeSplash.png',
+  '/js/main.js',
   '/js/api.js',
   '/js/favoritos.js',
   '/js/views.js',
   '/js/navegacion.js',
-  '/js/main.js'
+  '/js/router.js',
+  '/js/home.js'
 ];
 
 self.addEventListener('install', event => {
